@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Compute Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+    <div class="app-container">
+        <aside class="panel left-panel">
+            <div class="glass-box graph-container">
+                <h3>Function Grapher</h3>
+                <input type="text" id="graph-input" placeholder="e.g. x^2 + 2*x">
+                <button id="btn-graph">Plot</button>
+                <canvas id="graph-canvas" width="300" height="200"></canvas>
+            </div>
+            
+            <div class="glass-box memory-container">
+                <h3>Memory Bank</h3>
+                <div class="memory-inputs">
+                    <input type="text" id="mem-name" placeholder="Var Name (e.g. Tax)">
+                    <input type="text" id="mem-val" placeholder="Value">
+                    <button id="btn-save-mem">Save</button>
+                </div>
+                <ul id="memory-list" class="scroll-list"></ul>
+            </div>
+        </aside>
+
+        <main class="panel center-panel">
+            <header class="controls">
+                <button id="btn-theme-dark" class="active">Dark</button>
+                <button id="btn-theme-neon">Neon</button>
+                <button id="btn-theme-minimal">Minimal</button>
+                <button id="btn-sound" class="toggle-btn">🔊 Sound On</button>
+                <button id="btn-sci-mode" class="toggle-btn">🧪 Sci Mode</button>
+            </header>
+
+            <div class="glass-box calculator-main">
+                <div class="display-screen">
+                    <div class="suggestions" id="suggestions"></div>
+                    <div class="expression" id="display-expr"></div>
+                    <div class="live-result" id="display-live">0</div>
+                </div>
+
+                <div class="keypad basic-keys">
+                    <button class="btn func" data-val="clear">AC</button>
+                    <button class="btn func" data-val="del">DEL</button>
+                    <button class="btn func" data-val="%">%</button>
+                    <button class="btn op" data-val="/">/</button>
+
+                    <button class="btn num" data-val="7">7</button>
+                    <button class="btn num" data-val="8">8</button>
+                    <button class="btn num" data-val="9">9</button>
+                    <button class="btn op" data-val="*">*</button>
+
+                    <button class="btn num" data-val="4">4</button>
+                    <button class="btn num" data-val="5">5</button>
+                    <button class="btn num" data-val="6">6</button>
+                    <button class="btn op" data-val="-">-</button>
+
+                    <button class="btn num" data-val="1">1</button>
+                    <button class="btn num" data-val="2">2</button>
+                    <button class="btn num" data-val="3">3</button>
+                    <button class="btn op" data-val="+">+</button>
+
+                    <button class="btn num span-2" data-val="0">0</button>
+                    <button class="btn num" data-val=".">.</button>
+                    <button class="btn calc-btn" data-val="=">=</button>
+                </div>
+
+                <div class="keypad sci-keys hidden" id="sci-keys">
+                    <button class="btn sci" data-val="sin(">sin</button>
+                    <button class="btn sci" data-val="cos(">cos</button>
+                    <button class="btn sci" data-val="tan(">tan</button>
+                    <button class="btn sci" data-val="log(">log</button>
+                    <button class="btn sci" data-val="ln(">ln</button>
+                    <button class="btn sci" data-val="sqrt(">√</button>
+                    <button class="btn sci" data-val="^">^</button>
+                    <button class="btn sci" data-val="!">!</button>
+                    <button class="btn sci" data-val="(">(</button>
+                    <button class="btn sci" data-val=")">)</button>
+                    <button class="btn sci" data-val="PI">π</button>
+                    <button class="btn sci" data-val="E">e</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="panel right-panel">
+            <div class="glass-box step-container">
+                <h3>Calculation Breakdown <button id="btn-replay">Replay</button></h3>
+                <div id="step-breakdown" class="scroll-list"></div>
+            </div>
+
+            <div class="glass-box history-container">
+                <h3>Timeline <button id="btn-clear-hist">Clear</button></h3>
+                <ul id="history-list" class="scroll-list"></ul>
+            </div>
+        </aside>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
